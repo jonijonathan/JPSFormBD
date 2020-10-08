@@ -16,7 +16,7 @@
         <h1>Bienvenido</h1>
         <%
             Persona p = (Persona) session.getAttribute("userActual");   
-            String ses = session.getId();          
+            String ses = session.getId();       
         %>
         <p>ID Sesion:  <%= ses%></p>
         <input type="text" readonly value="<%= p.getNombre()%>"/>
@@ -24,10 +24,13 @@
         <p>Partidas Ganadas</p>
         <input type="text" readonly value="<%= p.getPartGanadas()%>"/>
         <br>
-        <img src="../img/defecto.jpg">
+        
+        <img src="<%= p.getImagen()%>" width="100px">
         <form action="../controlador.jsp">
             <input type="submit" value="Jugar" name="jugar"/>
             <input type="submit" value="Cerrar Session" name="cs"/>
+            <hr>
+            <input type="submit" value="Editar mi Perfil" name="editarMiPerfil"/>
         </form>
     </body>
 </html>

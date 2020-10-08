@@ -18,8 +18,5 @@
             <input type="submit" value="Volver" /> 
         </form>
         <br/>
-        <form action="../listar.jsp" method="POST">
-            <input type="submit" value="Listar" /> 
-        </form>
     </body>
 </html>

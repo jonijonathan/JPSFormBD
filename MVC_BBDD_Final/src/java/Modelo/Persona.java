@@ -24,6 +24,7 @@ public class Persona {
     private String curso;
     private String contra;
     private int partGanadas;
+    private String imagen;
     
     //constructores
 
@@ -31,7 +32,7 @@ public class Persona {
         asignaturas = new LinkedList <String> ();
     }
 
-    public Persona(String nombre, int edad, String sexo, String fecha, String curso, String contra, String apellido, String email, String rol, int partGanadas) {
+    public Persona(String nombre, int edad, String sexo, String fecha, String curso, String contra, String apellido, String email, String rol, int partGanadas, String imagen) {
         this.nombre = nombre;
         this.edad = edad;
         this.apellido = apellido;
@@ -43,8 +44,19 @@ public class Persona {
         this.curso = curso;
         this.contra = contra;
         this.partGanadas = partGanadas;
+        this.imagen = imagen;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
+    
     public String getNombre() {
         return nombre;
     }

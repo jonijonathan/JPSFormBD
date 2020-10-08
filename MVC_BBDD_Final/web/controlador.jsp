@@ -60,7 +60,8 @@
                 String fecha = request.getParameter("fecha") + "";
                 String curso = request.getParameter("curso") + "";
                 String contra = request.getParameter("contra") + "";
-                Persona p = new Persona(nombre, edad, sexo, fecha, curso, contra, apellido, email, rol, 0);
+                Persona p = new Persona(nombre, edad, sexo, fecha, curso, contra, apellido, email, rol, 0,
+                        "../img/defecto.jpg");
 
                 if (request.getParameterValues("asig") != null) {
                     String r[] = request.getParameterValues("asig");
@@ -126,6 +127,11 @@
                     response.sendRedirect("vista/nuevaContra.jsp");
                 }
 
+            }
+            
+            //editar mi perfil
+            if(request.getParameter("editarMiPerfil") != null){
+                response.sendRedirect("vista/editarMiPerfil.jsp");
             }
 
         %>
