@@ -17,4 +17,6 @@ public class Constantes {
     
     public static String tablaPersona = "persona";
     public static String tablaAsig = "asignatura";
+    
+    public static String rutaAbsoluta ="/home/jonathan/repositoriosServidor/JPSFormBD/MVC_BBDD_Final/web/img";
 }

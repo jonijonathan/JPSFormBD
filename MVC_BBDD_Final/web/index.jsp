@@ -17,7 +17,7 @@
             <input type ="email" value="" name ="user"/>
             <br/>
             <p>Contraseña:</p>
-            <input type ="text" value="" name ="contra"/>
+            <input type ="password" value="" name ="contra"/>
             <br/>
             <input type ="submit" value="entrar" name ="accionIndex"/>
             <input type ="submit" value="registrar" name ="accionIndex"/>

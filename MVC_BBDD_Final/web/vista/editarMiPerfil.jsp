@@ -22,7 +22,12 @@
             <label>Nombre: </label>
             <input type="text" readonly value="<%= p.getNombre()%>"/>
             <br>
-            <input type="text" value="" placeholder="Nuevo Nombre..."/>
+            <input type="text" name="nombre" value="" placeholder="Nuevo Nombre..."/>
+            <hr>
+            <label>Edad </label>
+            <input type="text" readonly value="<%= p.getEdad()%>"/>
+            <br>
+            <input type="number" name="edad" min="1" max="80"/>
             <hr>
             <label>Imagen: </label>
             <img src="<%= p.getImagen()%>" width="100px">

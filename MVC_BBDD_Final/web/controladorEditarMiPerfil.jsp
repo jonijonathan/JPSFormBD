@@ -4,6 +4,7 @@
     Author     : jonathan
 --%>
 
+<%@page import="Auxiliar.Constantes"%>
 <%@page import="Modelo.ConexionEstatica"%>
 <%@page import="Modelo.Persona"%>
 <%@page import="java.io.File"%>
@@ -29,7 +30,7 @@
                 // Los items obtenidos serán cada uno de los campos del formulario,
                 // tanto campos normales como ficheros subidos.
                 List items = upload.parseRequest(request);
-
+                Persona p = (Persona) session.getAttribute("userActual");
                 // Se recorren todos los items, que son de tipo FileItem
                 for (Object item : items) {
                     FileItem uploaded = (FileItem) item;
@@ -38,19 +39,28 @@
                     // subido donde nos interese
                     if (!uploaded.isFormField()) {
                         // No es campo de formulario, guardamos el fichero en algún sitio
-                        File fichero = new File("/home/jonathan/repositoriosServidor/JPSFormBD/MVC_BBDD_Final/web/img", uploaded.getName());
+                        File fichero = new File(Constantes.rutaAbsoluta, uploaded.getName());
                         uploaded.write(fichero);
                         //actualizar la ruta de la img del usuario
-                        Persona p = (Persona) session.getAttribute("userActual");
+                        
                         p.setImagen("../img/" + uploaded.getName());
                         ConexionEstatica.modificarImgPerfil(p);
                     } else {
                         // es un campo de formulario, podemos obtener clave y valor
                         String key = uploaded.getFieldName();
                         String valor = uploaded.getString();
-                        //actualizar nombre del usuario
+                        if(key.equals("nombre") && !valor.equals("")){
+                            p.setNombre(valor);
+                        }
+                        if(key.equals("edad") && !valor.equals("")){
+                            p.setEdad(Integer.parseInt(valor));
+                        }
+                        System.out.println(key);
+                        System.out.println(valor);
+                        
                     }
                 }
+                ConexionEstatica.modificarPersonaNombreEdad(p);
                 response.sendRedirect("vista/acierto.jsp");
             } catch (Exception e) {
                 response.sendRedirect("vista/acierto.jsp");

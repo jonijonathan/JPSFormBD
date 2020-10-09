@@ -167,6 +167,21 @@ public class ConexionEstatica {
         return modificado;
     }
 
+        public static boolean modificarPersonaNombreEdad(Persona p) {
+        boolean modificado = false;
+        nueva();
+        try {
+            String sentencia = "UPDATE " + Constantes.tablaPersona + " set nombre = '" + p.getNombre()
+                    + "', edad = " + p.getEdad() + " where email = '" + p.getEmail() + "';";
+            ConexionEstatica.Sentencia_SQL.executeUpdate(sentencia);
+            modificado = true;
+
+        } catch (Exception e) {
+        }
+        cerrarBD();
+        return modificado;
+    }
+    
     public static boolean modificarContraseña(Persona p) {
         boolean modificado = false;
         nueva();
